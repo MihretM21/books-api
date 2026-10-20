@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Things Fall Apart",
+    "author": "Chinua Achebe",
+    "year": 1958,
+    "genre": "Novel"
+  },
+  {
+    "id": 2,
+    "title": "Fikir Eske Mekabir",
+    "author": "Haddis Alemayehu",
+    "year": 1958,
+    "genre": "Novel"
+  },
+  {
+    "id": 3,
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "year": 1988,
+    "genre": "Fiction"
+  },
+  {
+    "id": 4,
+    "title": "Half of a Yellow Sun",
+    "author": "Chimamanda Ngozi Adichie",
+    "year": 2006,
+    "genre": "Historical"
+  },
+  {
+    "id": 5,
+    "title": "1984",
+    "author": "George Orwell",
+    "year": 1949,
+    "genre": "Dystopian"
+  },
+  {
+    "id": 6,
+    "title": "Animal Farm",
+    "author": "George Orwell",
+    "year": 1945,
+    "genre": "Satire"
+  }
+]
