@@ -1,61 +1,40 @@
-# AI Chat App
+# Hiruy Bootcamp
 
-A simple chat app built with plain HTML, CSS and JavaScript. You type a message, the app sends it to an AI model through an API using `fetch()`, and the reply appears in a running conversation.
+Hi! I am Mihret Dula. This repository contains my daily practice and weekly projects for the Hiruy Full-Stack Bootcamp.
 
-Built as an assignment for the Hiruy Full-Stack Bootcamp.
+## What is in this repository
 
-## Features
-- Chat interface with your messages and the AI's replies in one conversation
-- Sends each message to the AI API with `fetch()` and `async/await`
-- Shows the AI's reply on the page as soon as it arrives
-- Works in the browser, with no framework and no build step
+| Folder or file | What it is |
+|---|---|
+| `index.html`, `recipe.html`, `add-recipe.html` | Recipe platform pages built with HTML and CSS (Flexbox, Grid, responsive layout) |
+| `css/` | Styles for the recipe platform |
+| `js/` | JavaScript fundamentals practice: the recipes array and functions (validate servings, scale ingredients, search recipes) |
+| `images/` | Images used by the pages |
+| `react-recipe-platform/` | The recipe platform rebuilt with React, Vite and Tailwind CSS |
 
-## Built with
-- HTML (`index.html`) for the page structure
-- CSS (`style.css`) for the layout and styling
-- JavaScript (`script.js`) for sending messages, calling the API and showing replies
-- [Groq API](https://console.groq.com) as the AI provider (free tier, OpenAI-compatible format)
-- Model: `openai/gpt-oss-20b`
+## React recipe platform
+A React version of the recipe site with:
+- Recipe cards with a favorite button
+- A recipe detail view with ingredients and steps
+- An Add Recipe form that adds new recipes to the list
+- A servings counter
+- A responsive Tailwind layout (1, 2 or 3 columns)
 
-## Project structure
+Run it:
 ```
-ai-chat-app/
-├── index.html
-├── style.css
-├── script.js
-└── README.md
+cd react-recipe-platform
+npm install
+npm run dev
 ```
 
-## How to run it
-1. Download or clone this repository:
-   ```
-   git clone https://github.com/MihretM21/ai-chat-app.git
-   ```
-2. Get a free API key at [console.groq.com](https://console.groq.com).
-3. Open `script.js` and put your key in the `API_KEY` line:
-   ```js
-   const API_KEY = "your-groq-api-key-here";
-   ```
-4. Open `index.html` in your browser (or use the VS Code **Go Live** button).
-5. Type a message and press **Send**.
+## Other projects (separate repositories)
+- [sms-react](https://github.com/MihretM21/sms-react): Student Management System in React
+- [sms-react-tailwind](https://github.com/MihretM21/sms-react-tailwind): the same system styled with Tailwind CSS
+- [ai-chat-app](https://github.com/MihretM21/ai-chat-app): AI chat app using `fetch()` and the Groq API
+- [books-api](https://github.com/MihretM21/books-api): Books API with Node.js and Express
 
-## API key safety
-The real API key is **not** stored in this repository. The `API_KEY` line holds only a placeholder, and you add your own key on your computer. Never commit a real key to GitHub, because anyone could use it.
-
-## How it works
-1. The user types a message and clicks **Send**.
-2. `script.js` adds the message to the chat on the page.
-3. `fetch()` sends the conversation to the Groq API, with the key in the `Authorization` header.
-4. The API answers with JSON. The script reads the reply text from the response.
-5. The reply is shown in the chat.
-6. If the request fails, the app shows an error message instead of waiting forever.
-
-## What I learned
-- How to call a web API with `fetch()` and `async/await`
-- How a request and a JSON response are structured
-- Why API keys must be kept out of public repositories
-- How to switch between AI providers (I first tried Gemini, then moved to Groq)
-- How to work with git and GitHub: commits, branches and pull requests
+## Skills practiced
+HTML, CSS, JavaScript, React, Tailwind CSS, Node.js, Express, Git and GitHub
 
 ## Author
 Mihret Dula, [@MihretM21](https://github.com/MihretM21)
