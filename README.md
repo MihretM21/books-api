@@ -1,40 +1,68 @@
-# Hiruy Bootcamp
+# Books API
 
-Hi! I am Mihret Dula. This repository contains my daily practice and weekly projects for the Hiruy Full-Stack Bootcamp.
+A small REST API built with Node.js and Express. It also includes a script that saves books to files and reads them back.
 
-## What is in this repository
+Built as the Week 8 assignment of the Hiruy Full-Stack Bootcamp.
 
-| Folder or file | What it is |
-|---|---|
-| `index.html`, `recipe.html`, `add-recipe.html` | Recipe platform pages built with HTML and CSS (Flexbox, Grid, responsive layout) |
-| `css/` | Styles for the recipe platform |
-| `js/` | JavaScript fundamentals practice: the recipes array and functions (validate servings, scale ingredients, search recipes) |
-| `images/` | Images used by the pages |
-| `react-recipe-platform/` | The recipe platform rebuilt with React, Vite and Tailwind CSS |
-
-## React recipe platform
-A React version of the recipe site with:
-- Recipe cards with a favorite button
-- A recipe detail view with ingredients and steps
-- An Add Recipe form that adds new recipes to the list
-- A servings counter
-- A responsive Tailwind layout (1, 2 or 3 columns)
+## Part 1: Files (`files.js`)
+Uses Node's built-in `fs` module to:
+1. Create one book object and save it to `book.json`
+2. Read it back and print it on one readable line
+3. Create an array of 6 books and save it to `books.json`
+4. Read the array back, print how many books there are, then print every book on its own line
 
 Run it:
 ```
-cd react-recipe-platform
-npm install
-npm run dev
+node files.js
 ```
 
-## Other projects (separate repositories)
-- [sms-react](https://github.com/MihretM21/sms-react): Student Management System in React
-- [sms-react-tailwind](https://github.com/MihretM21/sms-react-tailwind): the same system styled with Tailwind CSS
-- [ai-chat-app](https://github.com/MihretM21/ai-chat-app): AI chat app using `fetch()` and the Groq API
-- [books-api](https://github.com/MihretM21/books-api): Books API with Node.js and Express
+## Part 2: Server (`server.js`)
+An Express server that reads its books from an array in the code. Every book has a unique `id`.
 
-## Skills practiced
-HTML, CSS, JavaScript, React, Tailwind CSS, Node.js, Express, Git and GitHub
+| Request | Result |
+|---|---|
+| `GET /` | The text: Welcome to the Books API |
+| `GET /books` | All books as JSON |
+| `GET /books/:id` | The one matching book. If it doesn't exist: status 404 and `{ "error": "Book not found" }` |
+| `GET /books?author=...` | Only the books by that author (not case-sensitive). If nothing matches: `[]` |
+| `GET /books/count` | `{ "count": <the real number of books> }` |
+
+Example requests:
+```
+http://localhost:3000/books
+http://localhost:3000/books/2
+http://localhost:3000/books?author=George Orwell
+http://localhost:3000/books/count
+```
+
+## How to run it
+```
+git clone https://github.com/MihretM21/books-api.git
+cd books-api
+npm install
+node server.js
+```
+Then open `http://localhost:3000` in your browser. Stop the server with `Ctrl + C`.
+
+## Project structure
+```
+books-api/
+├── files.js        (Part 1: write and read files)
+├── server.js       (Part 2: Express server)
+├── book.json       (one saved book)
+├── books.json      (the saved array of 6 books)
+├── package.json
+└── README.md
+```
+
+## Notes
+- `/books/count` is defined **before** `/books/:id`. Express uses the first matching route, so otherwise `count` would be read as an id.
+- Every route ends with `return res...` so each request gets exactly one response, and no request waits forever.
+- The ids in the URL arrive as text, so the code uses `Number(req.params.id)` before comparing.
+- The data lives in an array in the code, so it resets when the server restarts.
+
+## Built with
+Node.js, Express
 
 ## Author
 Mihret Dula, [@MihretM21](https://github.com/MihretM21)
